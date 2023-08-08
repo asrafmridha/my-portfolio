@@ -1,5 +1,5 @@
 @extends('backend.mastaring.master')
-@section('expense.create','active')
+@section('skills.create','active')
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -9,32 +9,39 @@
         <!-- jquery validation -->
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Create Expense</small></h3>
+            <h3 class="card-title">Create Skills</small></h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
             @include('backend.layouts.notification')
-                <form action="{{ route('expense.store') }}" method="POST">
+                <form action="{{ route('skills.store') }}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="title">Title*</label>
-                            <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title" value="{{ old('title') }}">
-                            @error('title')
+                            <label for="skill_title">Title* <span class="text-danger">eg:Frontend Developer</span></label>
+                            <input type="text" name="skill_title" class="form-control" id="skill_title" placeholder="Enter Skill Title" value="{{ old('skill_title') }}">
+                            @error('skill_title')
                                 <p class="text text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" name="description" class="form-control" id="description" placeholder="Enter Description" value="{{ old('description') }}">
-                            @error('description')
+                            <label for="year">Year Of Experience</label>
+                            <input type="text" name="year" class="form-control" id="year" placeholder="Enter Year OF Experience" value="{{ old('year') }}">
+                            @error('year')
                                 <p class="text text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="amount">Amount</label>
-                            <input type="number" name="amount" class="form-control" id="amount" placeholder="Enter Amount" value="{{ old('amount') }}">
-                            @error('amount')
+                            <label for="skill_subtitle">Skill Subtitle<span class="text-danger">eg:HTML,CSS</span></label>
+                            <input type="text" name="skill_subtitle" class="form-control" id="skill_subtitle" placeholder="Enter Amount" value="{{ old('skill_subtitle') }}" onkeydown="addInput(event)">
+                            @error('skill_subtitle')
+                                <p class="text text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                           <div class="form-group">
+                            <label for="skill_level">Skill Level<span class="text-danger">eg:70,80</span></label>
+                            <input type="text" name="skill_level" class="form-control" id="skill_level" placeholder="Enter Skill Name" value="{{ old('skill_level') }}">
+                            @error('skill_level')
                                 <p class="text text-danger">{{ $message }}</p>
                             @enderror
                         </div>
@@ -63,4 +70,21 @@
     <!-- /.row -->
     </div><!-- /.container-fluid -->
 </section>
+@endsection
+
+@section('js')
+
+<script src="{{ asset('backend/js/tag-it.min.js') }}"></script>
+    <script>
+    $('input[name="skill_subtitle"]').amsifySuggestags({
+        type :'bootstrap',
+        tagLimit: 15
+
+    });
+        $('input[name="skill_level"]').amsifySuggestags({
+        type :'bootstrap',
+        tagLimit: 15
+
+    });
+    </script>
 @endsection

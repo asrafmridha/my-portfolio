@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            AboutMeSeeder::class,
             GeneralSettingSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();

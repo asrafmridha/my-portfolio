@@ -15,6 +15,13 @@ class AboutMeSeeder extends Seeder
      */
     public function run()
     {
-        AboutMe::create([]);
+        AboutMe::create([
+            'heading' => 'My introduction',
+            'description' => 'Web developer, with extensive knowledge and years of experience, working in web technologies and UI/UX design, delivering quality work.',
+            'experience' => '1',
+            'completed_project' => '5',
+            'companies' => '2',
+            'cv' => 'asraf_mridha',
+        ]);
     }
 }

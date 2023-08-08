@@ -50,34 +50,34 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li>--}}
           <li class="nav-item ">
-            <a href="{{ route('banner.index') }}" class="nav-link @yield('banner')">
+            <a href="{{ route('about_me.index') }}" class="nav-link @yield('about_me')">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Update Banner
+                About Me
               </p>
             </a>
-          </li> --}}
-          <li class="nav-item {{ (request()->is('admin/service*')) ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ (request()->is('admin/service*')) ? 'active' : '' }}">
+          </li> 
+          <li class="nav-item {{ (request()->is('admin/skills*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->is('admin/skills*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Service
+                Skills
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item menu-open">
-                <a href="{{ route('service.index') }}" class="nav-link @yield('service.index')">
+                <a href="{{ route('skills.index') }}" class="nav-link @yield('skills.index')">
                   <i class="far fa-circle nav-icon"></i>
-                  All Service
+                  All skills
                 </a>
               </li>
               <li class="nav-item ">
-                <a href="{{ route('service.create') }}" class="nav-link @yield('service.create')">
+                <a href="{{ route('skills.create') }}" class="nav-link @yield('skills.create')">
                   <i class="far fa-circle nav-icon"></i>
-                  Create Service
+                  Create skills
                 </a>
               </li>
             </ul>

@@ -116,27 +116,27 @@
 			<!------------ ABOUT --------------->
 			<section class="about section" id="about">
 				<h2 class="section_title">About Me</h2>
-				<span class="section_subtitle">My introduction</span>
+				<span class="section_subtitle">{{ $about_me->heading }}</span>
 				<div class="about_container container grid">
 					<img src="{{ asset('storage/'.generalsettings()->second_image) }}" alt="" class="about_img">
 					<div class="about_data">
-						<p class="about_description">Web developer, with extensive knowledge and years of experience, working in web technologies and UI/UX design, delivering quality work.</p>
+						<p class="about_description">{{ $about_me->description }}</p>
 						<div class="about_info">
 							<div>
-								<span class="about_info-title">01+</span>
+								<span class="about_info-title">{{ $about_me->experience }}+</span>
 								<span class="about_info-name">Years <br> experience</span>
 							</div>
 							<div>
-								<span class="about_info-title">05+</span>
+								<span class="about_info-title">{{ $about_me->completed_project }}+</span>
 								<span class="about_info-name">Completed <br> projects</span>
 							</div>
 							<div>
-								<span class="about_info-title">02+</span>
+								<span class="about_info-title">{{ $about_me->companies }}+</span>
 								<span class="about_info-name">Companies <br> worked</span>
 							</div>
 						</div>
 						<div class="about_buttons">
-							<a href="assets/pdf/Mahedi-cv.pdf" class="button button-flex">
+							<a href="{{ asset('storage/'.$about_me->cv) }}" class="button button-flex">
 								Download CV<i class="uil uil-download-alt button_icon"></i>
 							</a>
 						</div>

@@ -1,15 +1,12 @@
 @extends('backend.mastaring.master')
-@section('expense.index','active')
+@section('skills.index','active')
 @section('menu','menu-open')
 @section('content')
 <div class="card">
     <div class="container">
         <div class="row">
             <div class="col-md-8 mt-1">
-                <a href="{{ route('expense.create') }}" class="btn btn-primary">Create Expense</a>
-            </div>
-            <div class="col-md-4">
-                <strong>Total Expense : {{ App\Models\Expense::sum('amount') }}৳</strong>
+                <a href="{{ route('skills.create') }}" class="btn btn-primary">Create Skills</a>
             </div>
         </div>
     </div>

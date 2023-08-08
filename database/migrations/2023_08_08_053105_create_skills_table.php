@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('about_mes', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->string('heading')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('experience')->nullable();
-            $table->string('completed_project')->nullable();
-            $table->string('companies')->nullable();
-            $table->string('cv')->nullable();
+            $table->string('skill_title')->nullable();
+            $table->string('year')->nullable();
+            $table->string('skill_subtitle')->nullable();
+            $table->string('skill_level')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('about_mes');
+        Schema::dropIfExists('skills');
     }
 };

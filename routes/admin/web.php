@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\SellServiceController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +35,10 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth']], function () {
     Route::resource('sellservice', SellServiceController::class);
     Route::resource('expense', ExpenseController::class);
 
+    Route::resource('skills', SkillController::class);
+
+    Route::get('/about_me-edit', [AboutMeController::class, 'edit'])->name('about_me.index');
+    Route::post('about_me-update/{id}', [AboutMeController::class, 'update'])->name('about_me.update');
 
     //General Setting Section
     Route::get('/generalsettings', [GeneralSettingController::class, 'index'])->name('generalsetting.index');
