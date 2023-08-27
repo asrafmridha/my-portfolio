@@ -82,25 +82,25 @@
               </li>
             </ul>
           </li>
-           <li class="nav-item {{ (request()->is('admin/sellservice*')) ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ (request()->is('admin/sellservice*')) ? 'active' : '' }}">
+           <li class="nav-item {{ (request()->is('admin/experience*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->is('admin/experience*')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Sell Service
+                Experience
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item menu-open">
-                <a href="{{ route('sellservice.index') }}" class="nav-link @yield('sellservice.index')">
+                <a href="{{ route('experience.index') }}" class="nav-link @yield('experience.index')">
                   <i class="far fa-circle nav-icon"></i>
-                  Total Sell Service
+                  All Experience
                 </a>
               </li>
               <li class="nav-item ">
-                <a href="{{ route('sellservice.create') }}" class="nav-link @yield('service.create')">
+                <a href="{{ route('experience.create') }}" class="nav-link @yield('experience.create')">
                   <i class="far fa-circle nav-icon"></i>
-                 Sell Service
+                 Create Experience
                 </a>
               </li>
             </ul>

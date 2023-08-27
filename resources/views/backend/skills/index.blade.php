@@ -17,19 +17,26 @@
             <thead>
             <tr>
                 <th>Title</th>
-                <th>Description</th>
-                <th>Amount</th>
-                <th>Date & Time</th>
+                <th>Year</th>
+                <th>Sub Title</th>
+                <th>level</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
-                @foreach ($expenses as $row)
+                @foreach ($skills as $row)
                     <tr>
-                        <td>{{ $row->title }}</td>
-                        <td>{{ $row->description }}</td>
-                        <td>{{ $row->amount }}</td>
-                        <td>{{ $row->created_at->format('d-m-Y - h:i:sa') }}</td>
+                        <td>{{ $row->skill_title }}</td>
+                        <td>{{ $row->year }}</td>
+                        <td>
+                            @foreach ($row->skill_subtitle as $skill_subtitle)
+                                {{ $skill_subtitle }}
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach ($row->skill_level as $skill_level)
+                                {{ $skill_level }}%
+                            @endforeach
                         <td>
                          <div class="row">
                             <div class="col-md-6">

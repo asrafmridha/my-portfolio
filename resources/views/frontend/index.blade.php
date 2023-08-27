@@ -15,7 +15,7 @@
 		<!-- HEADER -->
 		<header class="header" id="header">
 			<nav class="nav container">
-				<a href="#" class="nav_logo">Mahedi</a>
+				<a href="#" class="nav_logo">Asraf</a>
 				<div class="nav_menu" id="nav_menu">
 					<ul class="nav_list grid">
 						<li class="nav_item">
@@ -145,6 +145,7 @@
 			</section>
 
 			<!-- ---------------SKILLS-------------- -->
+			<!-- ---------------SKILLS-------------- -->
 			<section class="skills section" id="skills">
 				<h2 class="section_title">Skills</h2>
 				<span class="section_subtitle">My technical level</span>
@@ -238,6 +239,7 @@
 					<!-- </div> -->
 				</div>
 			</section>
+
 			<!-- -----------Qualification----------- -->
 			<section class="qualification section">
 				<h2 class="section_title">Qualification</h2>
@@ -259,11 +261,11 @@
 							<!-- =====Qualification 1========= -->
 							<div class="qualification_data">
 								<div>
-									<h3 class="qualification_title">BSc. in Computer Science and Engineering</h3>
-									<span class="qualification_subtitle">Sylhet Engineering College</span>
+									<h3 class="qualification_title">BSc. in Software Engineering</h3>
+									<span class="qualification_subtitle">Daffodil International University</span>
 									<div class="qualification_calender">
 										<i class="uil uil-calendar-alt"></i>
-										2015-2018
+										2018-2022
 									</div>
 								</div>
 								<div>
@@ -280,10 +282,10 @@
 								</div>
 								<div>
 									<h3 class="qualification_title">Higher Secondary Certificate</h3>
-									<span class="qualification_subtitle">Adamjee Cantonment College</span>
+									<span class="qualification_subtitle">Pangsa Govt College</span>
 									<div class="qualification_calender">
 										<i class="uil uil-calendar-alt"></i>
-										2011-2013
+										2015-2017
 									</div>
 								</div>
 								
@@ -292,10 +294,10 @@
 							<div class="qualification_data">
 								<div>
 									<h3 class="qualification_title">Secondary School Certificate</h3>
-									<span class="qualification_subtitle">Muslim Modern Academy</span>
+									<span class="qualification_subtitle">Yakub Ali Chowdhury Biddyapith</span>
 									<div class="qualification_calender">
 										<i class="uil uil-calendar-alt"></i>
-										2009-2010
+										2009-2015
 									</div>
 								</div>
 								<div>
@@ -306,23 +308,26 @@
 						</div>
 						<!-- =========Qualification content 2========== -->
 						<div class="qualification_content" data-content id="work">
-							<!-- =====Qualification 1========= -->
-							<div class="qualification_data">
-								<div>
-									<h3 class="qualification_title">Sofware Engineer</h3>
-									<span class="qualification_subtitle">ABCsoft -Dhaka</span>
-									<div class="qualification_calender">
-										<i class="uil uil-calendar-alt"></i>
-										2018-2020
+							<!-- =====Experience 1========= -->
+							@foreach ($experiences as $item)
+								<div class="qualification_data">
+									<div>
+										<h3 class="qualification_title">{{ $item->title }}</h3>
+										<span class="qualification_subtitle">{{ $item->company }}</span>
+										<div class="qualification_calender">
+											<i class="uil uil-calendar-alt"></i>
+											{{ $item->date }}
+										</div>
+									</div>
+									<div>
+										<span class="qualification_rounder"></span>
+										<span class="qualification_line"></span>
 									</div>
 								</div>
-								<div>
-									<span class="qualification_rounder"></span>
-									<span class="qualification_line"></span>
-								</div>
-							</div>
+							@endforeach
+							
 							<!-- =====Qualification 2========= -->
-							<div class="qualification_data">
+							{{-- <div class="qualification_data">
 								<div></div>
 								<div>
 									<span class="qualification_rounder"></span>
@@ -337,9 +342,9 @@
 									</div>
 								</div>
 								
-							</div>
+							</div> --}}
 							<!-- =====Qualification 3========= -->
-							<div class="qualification_data">
+							{{-- <div class="qualification_data">
 								<div>
 									<h3 class="qualification_title">Intern Web developer</h3>
 									<span class="qualification_subtitle">Megamind BD</span>
@@ -352,7 +357,7 @@
 									<span class="qualification_rounder"></span>
 									<!-- <span class="qualification_line"></span> -->
 								</div>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>

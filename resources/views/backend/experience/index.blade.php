@@ -1,12 +1,12 @@
 @extends('backend.mastaring.master')
-@section('sellservice.index','active')
+@section('experience.index','active')
 @section('menu','menu-open')
 @section('content')
 <div class="card">
     <div class="container">
         <div class="row">
             <div class="col-md-8 mt-1">
-                <a href="{{ route('sellservice.create') }}" class="btn btn-primary">Create Sell Service</a>
+                <a href="{{ route('experience.create') }}" class="btn btn-primary">Create Experience </a>
             </div>
             <div class="col-md-4">
             </div>
@@ -18,42 +18,25 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>Service Name</th>
-                <th>Price</th>
+                <th>Designation</th>
+                <th>Company Name</th>
+                <th>Date</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
-                @foreach ($sell_services as $row)
+                @foreach ($experiences as $row)
                     <tr>
-                        <td>{{ $row->name }}</td>
-                        <td>{{ $row->mobile }}</td>
-                        <td>{{ $row->address }}</td>
-                        <td>{{ $row->email }}</td>
-                        <td>
-                            @foreach ($row->service_name as $key=>$item)
-                               {{ App\Models\Service::where('id',$item)->value('name') }} ,
-                            @endforeach    
-                        </td>
-                        <td>
-                            @foreach ($row->service_name as $key=>$item)
-                               {{ App\Models\Service::where('id',$item)->value('price') }} ,
-                            @endforeach 
-                        </td>
+                        <td>{{ $row->title }}</td>
+                        <td>{{ $row->company }}</td>
+                        <td>{{ $row->date }}</td>
                         <td>
                          <div class="row">
-                            <div class="col-md-4">
-                                <a href="{{ route('sellservice.show',$row->id) }}"  class="btn btn-block btn-primary btn-sm" >Invoice</a>
-                            </div>
                             <div class="col-md-4">
                                 <button type="button" class="btn btn-block btn-primary btn-sm"  data-toggle="modal" data-target="#service_modal-{{ $row->id }}">edit</button>
                             </div>
                             <div class="col-md-4">
-                                <form action="{{ route('sellservice.destroy',$row->id) }}" method="POST">
+                                <form action="{{ route('experience.destroy',$row->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <a href="" class="deleteBtn btn btn-block btn-danger btn-sm" data-id="{{ $row->id }}">Delete</a>
@@ -71,38 +54,42 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 </div>
-                                <form action="{{ route('service.update',$row->id) }}" method="POST">
+                                <form action="{{ route('experience.update',$row->id) }}" method="POST">
                                     @method('PUT')
                                     @csrf
-                                    <div class="modal-body">
+                                    <div class="card-body">
                                         <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <label for="">Name<span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="name" value="{{ $row->name }}">
-                                                </div>
-                                            </div> 
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <label for="price">Price<span class="text-danger">*</span></label>
-                                                    <input type="number" class="form-control" name="price" value="{{ $row->price }}">
-                                                </div>
-                                            </div> 
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                     <label for="price">Status <span class="text-danger">*</span></label>
-                                                    <select name="status" id="status" class="form-control">
-                                                        <option value="">Status</option>
-                                                        <option value="active" >Active</option>
-                                                        <option value="inactive">Inactive</option>
-                                                    </select>
-                                                </div>
+                                            <label for="title">Designation <span class="text-danger">*</span></label>
+                                            <input type="text" name="title" class="form-control" id="title" placeholder="Enter Designation" value="{{ old('title',$row->title) }}">
+                                            @error('title')
+                                                <p class="text text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div> 
+                                        <div class="form-group">
+                                            <label for="company">Company Name <span class="text-danger">*</span></label>
+                                            <input type="text" name="company" class="form-control" id="company" placeholder="Enter Company Name" value="{{ old('company',$row->company) }}">
+                                            @error('company')
+                                                <p class="text text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div> 
+                                        <div class="form-group">
+                                            <label for="date">Date <span class="text-danger">eg(2018-2020)/ (23 march - 21 December) 2023</span></label>
+                                            <input type="text" name="date" class="form-control" id="date" placeholder="Enter Date" value="{{ old('date',$row->date) }}">
+                                            @error('date')
+                                                <p class="text text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div> 
+                                
+                                        <div class="form-group mb-0">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                                                <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </form>
                             </div>

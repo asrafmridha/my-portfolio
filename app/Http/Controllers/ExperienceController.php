@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Skill;
+use App\Models\Experience;
 use Illuminate\Http\Request;
 
-class SkillController extends Controller
+class ExperienceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skills = Skill::orderBy('id', 'DESC')->get();
-        return view('backend.skills.index', compact('skills'));
+        $experiences = Experience::all();
+        return view('backend.experience.index', compact('experiences'));
     }
 
     /**
@@ -25,7 +25,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        return view('backend.skills.create');
+        return view('backend.experience.create');
     }
 
     /**
@@ -36,15 +36,15 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
         $request->validate([
-            'skill_title' => 'required',
-            'year' =>        'required',
-            'skill_subtitle' => 'required',
-            'skill_level' => 'required',
+            'title' => 'required|string|max:50',
+            'company' => 'required|string|max:50',
+            'date' => 'required|string|max:70',
         ]);
-        Skill::create($request->all());
-        return redirect()->route('skills.index')->with('success', 'Skill Created Successfully');
+
+        $data = $request->all();
+        Experience::create($data);
+        return redirect()->route('experience.index')->withSuccess("Experience Created Successfully");
     }
 
     /**
@@ -66,7 +66,7 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -78,7 +78,15 @@ class SkillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'company' => 'required|string|max:50',
+            'date' => 'required|string|max:70',
+        ]);
+
+        $data = $request->all();
+        Experience::find($id)->update($data);
+        return redirect()->route('experience.index')->withSuccess("Experience Updated Successfully");
     }
 
     /**
@@ -89,6 +97,12 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $experience = Experience::find($id);
+        if ($experience) {
+            $experience->delete();
+            return redirect()->route('experience.index')->withSuccess("Experience Deleted Successfully");
+        }else{
+            return back()->withError("Something Went Wrong");
+        }
     }
 }

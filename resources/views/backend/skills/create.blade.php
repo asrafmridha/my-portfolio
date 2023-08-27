@@ -33,14 +33,14 @@
                         </div>
                         <div class="form-group">
                             <label for="skill_subtitle">Skill Subtitle<span class="text-danger">eg:HTML,CSS</span></label>
-                            <input type="text" name="skill_subtitle" class="form-control" id="skill_subtitle" placeholder="Enter Amount" value="{{ old('skill_subtitle') }}" onkeydown="addInput(event)">
+                            <input type="text" name="skill_subtitle[]" class="form-control" id="skill_subtitle" placeholder="Enter Amount" value="{{ old('skill_subtitle') }}" onkeydown="addInput(event)">
                             @error('skill_subtitle')
                                 <p class="text text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                            <div class="form-group">
                             <label for="skill_level">Skill Level<span class="text-danger">eg:70,80</span></label>
-                            <input type="text" name="skill_level" class="form-control" id="skill_level" placeholder="Enter Skill Name" value="{{ old('skill_level') }}">
+                            <input type="text" name="skill_level[]" class="form-control" id="skill_level" placeholder="Enter Skill Name" value="{{ old('skill_level') }}">
                             @error('skill_level')
                                 <p class="text text-danger">{{ $message }}</p>
                             @enderror

@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\GeneralSettingController;
 use App\Http\Controllers\SellServiceController;
 use App\Http\Controllers\SkillController;
@@ -32,7 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => '/admin', 'middleware' => ['auth']], function () {
 
     Route::resource('service', ServiceController::class);
-    Route::resource('sellservice', SellServiceController::class);
+    Route::resource('experience', ExperienceController::class);
     Route::resource('expense', ExpenseController::class);
 
     Route::resource('skills', SkillController::class);
